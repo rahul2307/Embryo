@@ -8,6 +8,6 @@ import retrofit2.http.POST;
  * Created by Asus on 04-02-2017.
  */
 public interface RequestInterface {
-    @POST("learn2crack-login-register/")
+    @POST("login/")
     Call<ServerResponse> operation(@Body ServerRequest request);
 }

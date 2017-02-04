@@ -1,5 +1,6 @@
 package com.savages.embryo.embryo.Server;
 
+import com.savages.embryo.embryo.Bean.Patient;
 import com.savages.embryo.embryo.Bean.User;
 
 /**
@@ -8,13 +9,15 @@ import com.savages.embryo.embryo.Bean.User;
 public class ServerRequest {
 
     private String operation;
-    private User user;
+    private Patient pt;
 
     public void setOperation(String operation) {
         this.operation = operation;
     }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setPatient(Patient ad) {
+        this.pt = pt;
     }
+  /*  public void setUser(User user) {
+        this.user = user;
+    }*/
 }

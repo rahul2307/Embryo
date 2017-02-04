@@ -2,10 +2,13 @@ package com.savages.embryo.embryo.Fragments;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +16,25 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.savages.embryo.embryo.Bean.Constants;
+import com.savages.embryo.embryo.Bean.User;
 import com.savages.embryo.embryo.R;
+import com.savages.embryo.embryo.Server.RequestInterface;
+import com.savages.embryo.embryo.Server.ServerRequest;
+import com.savages.embryo.embryo.Server.ServerResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class RegisterFragment extends Fragment {
+public class RegisterFragment extends Fragment implements View.OnClickListener{
     private AppCompatButton btn_register;
     private EditText et_email,et_password,et_name;
     private TextView tv_login;
     private ProgressBar progress;
+    private SharedPreferences pref;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,7 +64,7 @@ public class RegisterFragment extends Fragment {
 
         switch (v.getId()){
             case R.id.tv_login:
-                goToLogin();
+                //goToLogin();
                 break;
 
             case R.id.btn_register:
@@ -89,7 +103,7 @@ public class RegisterFragment extends Fragment {
         user.setPassword(password);
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.REGISTER_OPERATION);
-        request.setUser(user);
+       // request.setUser(user);
         Call<ServerResponse> response = requestInterface.operation(request);
 
         response.enqueue(new Callback<ServerResponse>() {
@@ -98,6 +112,8 @@ public class RegisterFragment extends Fragment {
 
                 ServerResponse resp = response.body();
                 Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putBoolean(Constants.IS_LOGGED_IN,true);
                 progress.setVisibility(View.INVISIBLE);
             }
 
@@ -113,11 +129,11 @@ public class RegisterFragment extends Fragment {
         });
     }
 
-    private void goToLogin(){
+ /*   private void goToLogin(){
 
         Fragment login = new LoginFragment();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_frame,login);
         ft.commit();
-    }
+    }*/
 }

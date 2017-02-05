@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@drawable/bg1"
     >
     <ScrollView
         android:layout_width="match_parent"
@@ -180,7 +180,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/calender"
-                            android:background="@android:drawable/ic_menu_my_calendar"/>Button
+                            android:background="@android:drawable/ic_menu_my_calendar"
+                            />Button
                         </LinearLayout>
                         <Button
                             android:layout_width="match_parent"
@@ -188,7 +189,10 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/submit_btn"
                             android:text="Submit"
+                            android:textColor="#ffffff"
+                            android:textStyle="bold"
                             android:textSize="25dp"
+                            android:background="#e62065"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginTop="10dp"

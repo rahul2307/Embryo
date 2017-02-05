@@ -1,16 +1,11 @@
 package com.savages.embryo.embryo.Bean;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Asus on 04-02-2017.
  */
 public class Patient {
-    private String name;
-    private String phone;
-    private String city;
-    private String nopp;
-    private String nom;
-    private String genetic;
-    private String doctor;
 
     public String getName() {
         return name;
@@ -20,12 +15,12 @@ public class Patient {
         this.name = name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getCity() {
@@ -36,35 +31,45 @@ public class Patient {
         this.city = city;
     }
 
-    public String getNopp() {
-        return nopp;
+    public String getNPP() {
+        return NPP;
     }
 
-    public void setNopp(String nopp) {
-        this.nopp = nopp;
+    public void setNPP(String NPP) {
+        this.NPP = NPP;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNMC() {
+        return NMC;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNMC(String NMC) {
+        this.NMC = NMC;
     }
 
-    public String getGenetic() {
-        return genetic;
+    public String getGen_disease() {
+        return gen_disease;
     }
 
-    public void setGenetic(String genetic) {
-        this.genetic = genetic;
+    public void setGen_disease(String gen_disease) {
+        this.gen_disease = gen_disease;
     }
 
-    public String getDoctor() {
-        return doctor;
+    private String name;
+    private String mobile;
+    private String city;
+    private String NPP;
+    private String NMC;
+    private String gen_disease;
+    private String DOC;
+
+
+
+    public String getDOC() {
+        return DOC;
     }
 
-    public void setDoctor(String doctor) {
-        this.doctor = doctor;
+    public void setDOC(String DOC) {
+        this.DOC = DOC;
     }
 }

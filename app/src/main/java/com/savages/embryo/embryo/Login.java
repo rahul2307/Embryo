@@ -9,7 +9,7 @@ import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.savages.embryo.embryo.Bean.Constants;
-import com.savages.embryo.embryo.Fragments.RegisterFragment;
+
 import com.savages.embryo.embryo.Server.RegisterActivity;
 
 public class Login extends AppCompatActivity {

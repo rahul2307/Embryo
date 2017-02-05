@@ -1,3 +1,4 @@
+/*
 package com.savages.embryo.embryo.Fragments;
 
 import android.app.Fragment;
@@ -104,7 +105,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.REGISTER_OPERATION);
        // request.setUser(user);
-        Call<ServerResponse> response = requestInterface.operation(request);
+       // Call<ServerResponse> response = requestInterface.operation(request);
 
         response.enqueue(new Callback<ServerResponse>() {
             @Override
@@ -129,11 +130,14 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         });
     }
 
- /*   private void goToLogin(){
+ */
+/*   private void goToLogin(){
 
         Fragment login = new LoginFragment();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_frame,login);
         ft.commit();
-    }*/
+    }*//*
+
 }
+*/

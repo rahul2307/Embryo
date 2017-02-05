@@ -3,6 +3,10 @@ package com.savages.embryo.embryo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,25 +16,49 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.savages.embryo.embryo.Adapter.ProfileAdapter;
+import com.savages.embryo.embryo.Adapter.ProfileList;
+import com.savages.embryo.embryo.Bean.PreferenceManager;
+
+import java.util.ArrayList;
 
 public class MyProfile extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter adapter;
+    private TextView navUser;
+    private static String LOG_TAG = "CardViewActivity";
+    private com.savages.embryo.embryo.Bean.PreferenceManager PreferenceManager;
+    ArrayList<ProfileList> profileLists = new ArrayList<>();
 
+    private final String test_name[]={
+            "Tests And Vaccines",
+            "Tests And Vaccines",
+            "Tests And Vaccines",
+            "Tests And Vaccines"
+
+
+
+    };
+    private final int categories_imgId[] = {
+
+            R.drawable.download,
+            R.drawable.download,
+            R.drawable.download,
+            R.drawable.download
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        PreferenceManager = new PreferenceManager(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+initViews();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -39,7 +67,62 @@ public class MyProfile extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View hView =  navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
+        navUser = (TextView)hView.findViewById(R.id.nav_user);
+        navUser.setText(PreferenceManager.getCity());
+    }
+    private void initViews(){
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.my_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        final ArrayList<ProfileList> androidVersions = prepareData();
+        adapter = new ProfileAdapter(getApplicationContext(),androidVersions);
+        recyclerView.setAdapter(adapter);
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
+
+                @Override public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+
+            });
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+
+                View child = rv.findChildViewUnder(e.getX(), e.getY());
+                if (child != null && gestureDetector.onTouchEvent(e)) {
+                    int position = rv.getChildAdapterPosition(child);
+                    Toast.makeText(MyProfile.this, PreferenceManager.getCity(), Toast.LENGTH_SHORT).show();
+
+                }
+
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+    }
+
+    private ArrayList<ProfileList> prepareData() {
+        for(int i=0;i<test_name.length;i++){
+            ProfileList profile = new ProfileList();
+            profile.setTest(test_name[i]);
+            profile.setId(categories_imgId[i]);
+
+            profileLists.add(i,profile);
+        }
+        return profileLists;
     }
 
     @Override

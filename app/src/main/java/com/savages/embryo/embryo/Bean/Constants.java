@@ -4,7 +4,7 @@ package com.savages.embryo.embryo.Bean;
  * Created by Asus on 04-02-2017.
  */
 public class Constants {
-    public static final String BASE_URL = "http://192.168.43.134/";
+    public static final String BASE_URL = "http://192.168.43.134:8888/";
     public static final String REGISTER_OPERATION = "register";
     public static final String LOGIN_OPERATION = "login";
 

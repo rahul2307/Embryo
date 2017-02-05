@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg1"
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.savages.embryo.embryo.MyProfile"
-    tools:showIn="@layout/app_bar_my_profile">
+    tools:context="com.savages.embryo.embryo.Profile4thVisit"
+    tools:showIn="@layout/app_bar_profile4th_visit">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -105,8 +104,8 @@
                     android:id="@+id/duration"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:text="1st Visit:8-12 Weeks"
-android:layout_below="@+id/linearLayoutButtons"
+                    android:text="4th Visit:36-38 Weeks"
+                    android:layout_below="@+id/linearLayoutButtons"
                     android:padding="5dp"
                     android:textAlignment="center"
                     android:textColor="#e62065"
@@ -142,23 +141,23 @@ android:layout_below="@+id/linearLayoutButtons"
 
                     <TextView
 
-                        android:id="@+id/TxtViewPrevention"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                       android:text="Preventive Measures"
-                        android:maxLines="3"
-                        android:padding="5dp"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold"
-                        android:textSize="22dp"
-                        />
+                    android:id="@+id/TxtViewPrevention"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="Preventive Measures"
+                    android:maxLines="3"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:textSize="22dp"
+                    />
                     <TextView
 
-                        android:id="@+id/TxtViewPrevention1"
+                        android:id="@+id/TxtViewPrevention4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dear mom, please take care to get vaccinated by Tetanus toxoid Iron and Folate+. In case of abnormal results, genetic counseling is recommended."
+                        android:text="Genetic Disorders if found should be consulted with the doctor. Get vaccinated by Iron and folate and ARV."
                         android:maxLines="5"
                         android:padding="5dp"
                         android:textAlignment="center"
@@ -206,7 +205,7 @@ android:layout_below="@+id/linearLayoutButtons"
                         android:id="@+id/TxtAdvice1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="•	Stop use of alcohol and tobacco"
+                        android:text="•	Follow proper movements and avoid rush or hurry."
                         android:maxLines="5"
                         android:padding="5dp"
                         android:textAlignment="center"
@@ -218,46 +217,19 @@ android:layout_below="@+id/linearLayoutButtons"
                         android:id="@+id/TxtAdvice2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="•	Eat lots of little meal rather than few but big ones."
+                        android:text="•	Make proper arrangements for the new born in advance."
                         android:maxLines="5"
                         android:padding="5dp"
                         android:textAlignment="center"
 
                         android:textSize="18dp"
                         />
-                    <TextView
 
-                        android:id="@+id/TxtAdvice3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="•	Extensive rest."
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:textAlignment="center"
-
-                        android:textSize="18dp"
-                        />
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
-            <Button
-                android:layout_width="@dimen/btnFeedCategory"
-                android:layout_height="@dimen/btnFeedCategory"
-                android:id="@+id/btn_call"
-                android:layout_weight="1"
-                android:layout_marginTop="@dimen/cat_margin"
-                android:layout_marginBottom="@dimen/cat_margin"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/catbtn_linear_margin_width"
-                android:background="@drawable/newsfeed_button_shape"
-                android:drawableTop="@android:drawable/sym_call_outgoing"
-                android:paddingBottom="@dimen/categories_padding_top"
-                android:paddingTop="@dimen/categories_padding_top"
-                android:textColor="#ffffff" />
-
         </LinearLayout>
     </ScrollView>
 
-
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

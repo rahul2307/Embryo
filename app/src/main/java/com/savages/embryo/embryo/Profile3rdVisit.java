@@ -1,21 +1,14 @@
 package com.savages.embryo.embryo;
 
-import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,18 +24,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.api.translate.Language;
-import com.google.api.translate.Translate;
-import com.savages.embryo.embryo.Adapter.AlarmNotificationReciever;
 import com.savages.embryo.embryo.Adapter.ProfileAdapter;
 import com.savages.embryo.embryo.Adapter.ProfileList;
 import com.savages.embryo.embryo.Bean.PreferenceManager;
-import com.savages.embryo.embryo.TestActivity.FirstVisitActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class MyProfile extends AppCompatActivity
+public class Profile3rdVisit extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter adapter;
@@ -51,66 +40,52 @@ public class MyProfile extends AppCompatActivity
     private Button visit2nd;
     private Button visit3rd;
     private Button visit4th;
-    private Button call;
-
-
 
     private static String LOG_TAG = "CardViewActivity";
     private com.savages.embryo.embryo.Bean.PreferenceManager PreferenceManager;
     ArrayList<ProfileList> profileLists = new ArrayList<>();
 
-    private final String test_name[] = {
+    private final String test_name[]={
             "Tests And Vaccines"
+
 
 
     };
     private final int categories_imgId[] = {
 
             R.drawable.download
-
     };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_profile);
+        setContentView(R.layout.activity_profile3rd_visit);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         PreferenceManager = new PreferenceManager(this);
-        call= (Button) findViewById(R.id.btn_call);
-        visit1st = (Button) findViewById(R.id.btn_frst);
-        visit2nd = (Button) findViewById(R.id.btn_scnd);
-        visit3rd = (Button) findViewById(R.id.btn_third);
-        visit4th = (Button) findViewById(R.id.btn_fourth);
+
         initViews();
-      /*  visit1st.setOnClickListener(new View.OnClickListener() {
+           visit1st.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToProfile();
             }
-        });*/
+        });
         visit2nd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToProfile2ndVisit();
             }
         });
-        visit3rd.setOnClickListener(new View.OnClickListener() {
+        /*visit3rd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToProfile3rdVisit();
             }
-        });
+        });*/
         visit4th.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToProfile4thVisit();
-            }
-        });
-        call.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                call();
             }
         });
 
@@ -121,47 +96,28 @@ public class MyProfile extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View hView = navigationView.getHeaderView(0);
+        View hView =  navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
-        navUser = (TextView) hView.findViewById(R.id.nav_user);
-        navUser.setText("Dear" + PreferenceManager.getKeyName());
-    }
-
-    private void call() {
-        try {
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:8602534424"));
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            startActivity(callIntent);
-        } catch (ActivityNotFoundException e) {
-            Log.e("helloandroid dialing example", "Call failed", e);
-        }
+        navUser = (TextView)hView.findViewById(R.id.nav_user);
+        navUser.setText(PreferenceManager.getKeyName());
     }
     private void goToProfile2ndVisit() {
-        Intent intent = new Intent(MyProfile.this,Profile2ndVisit.class);
+        Intent intent = new Intent(Profile3rdVisit.this,Profile2ndVisit.class);
         startActivity(intent);
     }
-    private void goToProfile3rdVisit() {
-        Intent intent = new Intent(MyProfile.this,Profile3rdVisit.class);
+    private void goToProfile() {
+        Intent intent = new Intent(Profile3rdVisit.this,MyProfile.class);
         startActivity(intent);
     }
     private void goToProfile4thVisit() {
-        Intent intent = new Intent(MyProfile.this,Profile4thVisit.class);
+        Intent intent = new Intent(Profile3rdVisit.this,Profile4thVisit.class);
         startActivity(intent);
     }
-
     private void initViews(){
-
-
+        visit1st= (Button) findViewById(R.id.btn_frst);
+        visit2nd= (Button) findViewById(R.id.btn_scnd);
+        visit3rd= (Button) findViewById(R.id.btn_third);
+        visit4th= (Button) findViewById(R.id.btn_fourth);
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -184,9 +140,8 @@ public class MyProfile extends AppCompatActivity
                 View child = rv.findChildViewUnder(e.getX(), e.getY());
                 if (child != null && gestureDetector.onTouchEvent(e)) {
                     int position = rv.getChildAdapterPosition(child);
-                    //Toast.makeText(MyProfile.this, PreferenceManager.getCity(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Profile3rdVisit.this, PreferenceManager.getCity(), Toast.LENGTH_SHORT).show();
                     startAlarm(true,true);
-                    goToFirstVisitTest();
                 }
 
                 return false;
@@ -202,11 +157,6 @@ public class MyProfile extends AppCompatActivity
 
             }
         });
-    }
-
-    private void goToFirstVisitTest() {
-        Intent intent = new Intent(MyProfile.this,FirstVisitActivity.class);
-        startActivity(intent);
     }
 
     private ArrayList<ProfileList> prepareData() {
@@ -281,9 +231,9 @@ public class MyProfile extends AppCompatActivity
         Intent myIntent;
         PendingIntent pendingIntent;
 
-        //Toast.makeText(MyProfile.this, "ye chala", Toast.LENGTH_SHORT).show();
-            myIntent = new Intent(MyProfile.this, AlarmNotificationReciever.class);
-            pendingIntent = PendingIntent.getBroadcast(this,0,myIntent,0);
+        Toast.makeText(Profile3rdVisit.this, "ye chala", Toast.LENGTH_SHORT).show();
+        myIntent = new Intent(Profile3rdVisit.this,AlarmNotificationReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(this,0,myIntent,0);
 
 
         if(!isRepeat)

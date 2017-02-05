@@ -3,10 +3,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_my_profile">MyProfile</string>
+    <string name="title_activity_my_profile">Dear Mumma</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_profile2nd_visit">Dear Mumma</string>
+    <string name="title_activity_profile3rd_visit">Dear Mumma</string>
+    <string name="title_activity_profile4th_visit">Dear Mumma</string>
 </resources>

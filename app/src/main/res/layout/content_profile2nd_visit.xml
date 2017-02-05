@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg1"
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.savages.embryo.embryo.MyProfile"
-    tools:showIn="@layout/app_bar_my_profile">
+    tools:context="com.savages.embryo.embryo.Profile2ndVisit"
+    tools:showIn="@layout/app_bar_profile2nd_visit">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -71,7 +70,7 @@
 
                     <Button
                         android:layout_width="@dimen/btnFeedCategory"
-                        android:id="@+id/btn_third"
+                        android:id="@+id/btn_fourth"
                         android:layout_gravity="center_vertical"
                         android:layout_height="@dimen/btnFeedCategory"
                         android:layout_marginLeft="@dimen/catbtn_linear_margin_width"
@@ -87,7 +86,7 @@
                     <Button
                         android:layout_width="@dimen/btnFeedCategory"
                         android:layout_height="@dimen/btnFeedCategory"
-                        android:id="@+id/btn_fourth"
+                        android:id="@+id/btn_third"
                         android:layout_weight="1"
                         android:layout_marginTop="@dimen/cat_margin"
                         android:layout_marginBottom="@dimen/cat_margin"
@@ -105,8 +104,8 @@
                     android:id="@+id/duration"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:text="1st Visit:8-12 Weeks"
-android:layout_below="@+id/linearLayoutButtons"
+                    android:text="2nd Visit:24-26 Weeks"
+                    android:layout_below="@+id/linearLayoutButtons"
                     android:padding="5dp"
                     android:textAlignment="center"
                     android:textColor="#e62065"
@@ -145,7 +144,7 @@ android:layout_below="@+id/linearLayoutButtons"
                         android:id="@+id/TxtViewPrevention"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                       android:text="Preventive Measures"
+                        android:text="Preventive Measures"
                         android:maxLines="3"
                         android:padding="5dp"
                         android:textAlignment="center"
@@ -155,10 +154,10 @@ android:layout_below="@+id/linearLayoutButtons"
                         />
                     <TextView
 
-                        android:id="@+id/TxtViewPrevention1"
+                        android:id="@+id/TxtViewPrevention2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dear mom, please take care to get vaccinated by Tetanus toxoid Iron and Folate+. In case of abnormal results, genetic counseling is recommended."
+                        android:text="Dear Mom, please get vaccinated by Tetanus toxoid, Iron and folate ( if not done already) and IPTp and ARV."
                         android:maxLines="5"
                         android:padding="5dp"
                         android:textAlignment="center"
@@ -206,7 +205,7 @@ android:layout_below="@+id/linearLayoutButtons"
                         android:id="@+id/TxtAdvice1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="•	Stop use of alcohol and tobacco"
+                        android:text="•	During this time there are chances you face back pain and heartburn. So don’t worry its normal!"
                         android:maxLines="5"
                         android:padding="5dp"
                         android:textAlignment="center"
@@ -218,7 +217,7 @@ android:layout_below="@+id/linearLayoutButtons"
                         android:id="@+id/TxtAdvice2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="•	Eat lots of little meal rather than few but big ones."
+                        android:text="•	Start learning to sleep on your left side- your circulation is better that way."
                         android:maxLines="5"
                         android:padding="5dp"
                         android:textAlignment="center"
@@ -230,7 +229,7 @@ android:layout_below="@+id/linearLayoutButtons"
                         android:id="@+id/TxtAdvice3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="•	Extensive rest."
+                        android:text="•	Have lots of fluid and fiber to avoid constipation which is common during this time."
                         android:maxLines="5"
                         android:padding="5dp"
                         android:textAlignment="center"
@@ -241,21 +240,6 @@ android:layout_below="@+id/linearLayoutButtons"
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
-            <Button
-                android:layout_width="@dimen/btnFeedCategory"
-                android:layout_height="@dimen/btnFeedCategory"
-                android:id="@+id/btn_call"
-                android:layout_weight="1"
-                android:layout_marginTop="@dimen/cat_margin"
-                android:layout_marginBottom="@dimen/cat_margin"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/catbtn_linear_margin_width"
-                android:background="@drawable/newsfeed_button_shape"
-                android:drawableTop="@android:drawable/sym_call_outgoing"
-                android:paddingBottom="@dimen/categories_padding_top"
-                android:paddingTop="@dimen/categories_padding_top"
-                android:textColor="#ffffff" />
-
         </LinearLayout>
     </ScrollView>
 

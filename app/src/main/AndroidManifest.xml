@@ -3,14 +3,14 @@
     package="com.savages.embryo.embryo">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login" />
         <activity
             android:name=".MyProfile"
             android:label="@string/title_activity_my_profile"
@@ -22,7 +22,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Server.RegisterActivity"></activity>
+        <activity android:name=".Server.RegisterActivity" />
+        <activity
+            android:name=".Profile2ndVisit"
+            android:label="@string/title_activity_profile2nd_visit"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Profile3rdVisit"
+            android:label="@string/title_activity_profile3rd_visit"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Profile4thVisit"
+            android:label="@string/title_activity_profile4th_visit"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name=".Adapter.AlarmNotificationReciever"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".TestActivity.FirstVisitActivity"></activity>
     </application>
 
 </manifest>
